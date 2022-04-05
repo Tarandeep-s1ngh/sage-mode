@@ -4,7 +4,6 @@ export const Sidebar = () => {
   return (
     <aside className="sidebar semibold">
       <ul className="side-heading">
-        {}
         <NavLink
           className={({ isActive }) => (isActive ? "active" : null)}
           to="/explore"
@@ -27,7 +26,6 @@ export const Sidebar = () => {
           className={({ isActive }) => (isActive ? "active" : null)}
           to="/liked"
         >
-          {" "}
           <li>
             <i className="fas fa-heart"></i>
             <span> Liked</span>
@@ -37,7 +35,6 @@ export const Sidebar = () => {
           className={({ isActive }) => (isActive ? "active" : null)}
           to="/watchlater"
         >
-          {" "}
           <li>
             <i className="fas fa-bookmark"></i>
             <span> Watchlater</span>
@@ -47,7 +44,6 @@ export const Sidebar = () => {
           className={({ isActive }) => (isActive ? "active" : null)}
           to="/history"
         >
-          {" "}
           <li>
             <i className="fas fa-history"></i>
             <span> History</span>
