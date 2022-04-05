@@ -1,0 +1,41 @@
+
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.chip {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--primary-color);
+    border-radius: 2rem;
+    border: 2px solid var(--accent-color);
+}
+
+.video-listing {
+    padding: 2rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.content-title {
+    text-decoration: underline;
+    font-size: 1.3rem;
+}
+
+.empty-playlist {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.main-video-title {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
