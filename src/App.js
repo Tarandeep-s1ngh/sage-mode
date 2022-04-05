@@ -1,41 +1,47 @@
+import Mockman from "mockman-js";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
-import logo from "./logo.png";
-
+import { Navbar } from "./components";
+import {
+  Explore,
+  Forgot,
+  History,
+  LandingPageMain,
+  Liked,
+  Login,
+  Playlist,
+  Profile,
+  Signup,
+  SingleVideo,
+  Watchlater,
+} from "./pages";
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+      <div className="wrapper">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<LandingPageMain />} />
+          <Route path="explore" element={<Explore />} />
+          <Route path="playlist" element={<Playlist />} />
+          <Route path="liked" element={<Liked />} />
+          <Route path="watchlater" element={<Watchlater />} />
+          <Route path="history" element={<History />} />
+          <Route path="singlevideo" element={<SingleVideo />} />
+          <Route path="login" element={<Login />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="forgot" element={<Forgot />} />
+          <Route path="mockman" element={<Mockman />} />
+        </Routes>
+      </div>
     </div>
   );
 }

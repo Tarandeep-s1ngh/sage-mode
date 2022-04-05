@@ -1,0 +1,103 @@
+
+.auth-wrapper {
+    max-width: 35rem;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.auth-wrapper > * {
+    color: var(--white);
+}
+
+.input-validation {
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: unset;
+    padding-top: 0.8rem;
+}
+
+.input-validation > input {
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: 2px solid var(--accent-color);
+    background-color: unset;
+    color: white;
+    margin-bottom: 0.2rem;
+}
+
+.input-validation > input:hover {
+    background-color: unset;
+}
+
+.input-validation input:valid {
+    background-color: var(--light-green);
+    color: var(--black);
+}
+
+.input-validation input[type="checkbox"] {
+    border: none;
+    margin: 4.5px 0 3px 2px;
+}
+
+.input-span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-validation a:nth-child(2) {
+    margin-left: auto;
+}
+
+.input-validation-link {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.next-quest {
+    display: block;
+    margin: auto;
+    margin-top: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--accent-color);
+    width: 40%;
+    text-align: center;
+}
+
+.btn-login {
+    border: 2px solid var(--accent-color);
+}
+
+.btn-login:hover {
+    color: var(--white);
+}
+
+.btn-home {
+    margin-top: 1rem;
+    border: 2px solid var(--accent-color);
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-home:hover {
+    color: unset;
+}
+
+/* Profile Page */
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-left: 1rem;
+}
+
+.profile-details span.semibold {
+    display: inline-block;
+    margin-right: 1rem;
+}
