@@ -1,14 +1,16 @@
 import React from "react";
 import "./videocard.css";
-import { thumbnail1 } from "../../assets";
-import { thumbnail2 } from "../../assets";
 import { Link } from "react-router-dom";
 
-export const VideoCard = () => {
+export const VideoCard = ({ video }) => {
   return (
     <div className="card-badge">
       <div className="card-header">
-        <img className="thumbnail-image" src={thumbnail1} alt="" />
+        <img
+          className="thumbnail-image"
+          src={`https://i.ytimg.com/vi/${video._id}/0.jpg`}
+          alt={video.title}
+        />
         <div className="card-floating-icon">
           <div className="vid-card-icon">
             <i className="material-icons">playlist_play</i>
@@ -21,7 +23,7 @@ export const VideoCard = () => {
           <Link to={`/singlevideo/${video._id}`}>
             <h3 className="semibold vid-card-title">{video.title}</h3>
           </Link>
-          <small className="gray-color">ChessBase India</small>
+          <small className="gray-color">{video.creator}</small>
         </div>
       </div>
     </div>

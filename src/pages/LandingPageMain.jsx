@@ -28,7 +28,7 @@ export const LandingPageMain = () => {
           {/* CATEGORY CARD  */}
           {awesomeIcons.map((item) => {
             return (
-              <div key={item.title} className="card-badge">
+              <div key={item.categ} className="card-badge">
                 <i className={`fas fa-${item.icon}`}></i>
 
                 <div className="card-header-txt">

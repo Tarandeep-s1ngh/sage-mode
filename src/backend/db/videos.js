@@ -10,17 +10,16 @@ import {
 
 export const videos = [
   {
-    _id: "Wo5dMEP_BbI",
-    title: "Awesome Video about Coding",
+    _id: "wofz0k6FCMU",
+    title: "The shortest game",
     description:
       "Magnus Carlsen came to the game played five moves, offered a draw to Vidit Gujrathi and it all ended in just five moves! What happened? Check out in this video as we bring you the entire footage.",
     creator: "ChessBase India",
     logo: cbich,
   },
   {
-    _id: "F_Riqjdh2oM",
-    title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
-    creator: "Sentdex",
+    _id: "uW1ZUk6nkDE",
+    title: "Most Brilliant Chess Moves",
     description:
       "Join GM Simon Williams as he breaks down the best moves from Magnus Carlsen, the world chess champion since 2013. Carlsen is set to defend his title in late 2020. ",
     creator: "Chess.com",
@@ -32,6 +31,7 @@ export const videos = [
     description: "Chill late night chess stream with Tania Sachdev",
     creator: "Tania Sachdev",
     logo: tanCh,
+
   },
   {
     _id: "6Ae2PthxWSA",
@@ -48,6 +48,7 @@ export const videos = [
       "The Belgrade FIDE Grand Prix is the 16-player second of three legs of the 24-player 2022 FIDE Grand Prix that qualifies two players to the Candidates Tournament. Each player competes in two of the three tournaments, with the 16 players divided into four groups who play a double round-robin. The group winners advance to a knockout. Tiebreaks at any stage are played on the following day. Players can earn a maximum of 13 points for winning a leg.",
     creator: "Agadmator",
     logo: agadCh,
+
   },
   {
     _id: "Z2LHj-rgBbw",

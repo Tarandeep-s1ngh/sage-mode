@@ -1,9 +1,9 @@
 const awesomeIcons = [
-  { icon: "crown", title: "Tourney", categ: "Tourney" },
+  { icon: "laptop-code", title: "Analysis", categ: "Analysis" },
   { icon: "graduation-cap", title: "Tutorial", categ: "Tutorial" },
-  { icon: "chess", title: "Practice", categ: "Practice" },
+  { icon: "chess", title: "Casual", categ: "Casual" },
 ];
 
-const productCategories = ["Tourney", "Tutorial", "Practice"];
+const productCategories = ["Analysis", "Tutorial", "Casual"];
 
 export { awesomeIcons, productCategories };

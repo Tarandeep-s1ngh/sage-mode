@@ -1,7 +1,17 @@
+import { useEffect, useState } from "react";
 import { Sidebar, VideoCard } from "../components";
 import { getAllVideos, productCategories } from "../utils";
 
 export const Explore = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allVideos = await getAllVideos();
+      setVideos(allVideos);
+    })();
+  }, []);
+
   return (
     <div className="explore-wrapper">
       <Sidebar />
@@ -18,9 +28,8 @@ export const Explore = () => {
         </section>
 
         <section className="video-listing">
-          {/* TO BE CHANGED WITH FUNCTIONALITY */}
-          {[...Array(9)].map(() => {
-            return <VideoCard />;
+          {videos.map((video) => {
+            return <VideoCard key={videos._id} video={video} />;
           })}
         </section>
       </main>

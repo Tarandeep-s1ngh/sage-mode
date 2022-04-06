@@ -21,9 +21,14 @@
     padding-top: 0.3rem;
 }
 
-nav .nav-bar .icon-in-nav:hover {
-    background-color: var(--primary-color);
+.nav-bar .icon-in-nav:hover {
     color: var(--white);
+    background-color: unset;
+    cursor: pointer;
+}
+
+.nav-bar button:hover {
+    transform: unset;
 }
 
 .nav-txt > a {
@@ -49,13 +54,14 @@ nav .nav-bar .icon-in-nav:hover {
     background: none;
     width: 80%;
     padding: 2px 4.8px;
+    color: var(--white);
 }
 
 .search-bar > .fa-search {
     color: var(--accent-color);
 }
 
-.search-bar > .fa-search:hover {
+.search-bar:hover > .fa-search {
     color: var(--white);
     cursor: pointer;
 }
