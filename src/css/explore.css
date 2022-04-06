@@ -34,9 +34,12 @@
     gap: 1rem;
 }
 
-.main-video-title {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.video-info {
+    margin: 1rem 0;
+}
+
+.avatar-lg-size {
+    min-width: 4rem;
+    max-width: 4rem;
+    margin-top: 5px;
 }

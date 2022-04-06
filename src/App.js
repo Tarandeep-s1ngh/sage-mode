@@ -34,7 +34,7 @@ function App() {
           <Route path="liked" element={<Liked />} />
           <Route path="watchlater" element={<Watchlater />} />
           <Route path="history" element={<History />} />
-          <Route path="singlevideo" element={<SingleVideo />} />
+          <Route path="singlevideo/:videoId" element={<SingleVideo />} />
           <Route path="login" element={<Login />} />
           <Route path="profile" element={<Profile />} />
           <Route path="signup" element={<Signup />} />

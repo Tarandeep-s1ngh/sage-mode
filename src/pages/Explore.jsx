@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sidebar, VideoCard } from "../components";
-import { productCategories } from "../utils";
-import { getAllVideos } from "../utils/getVideos";
+import { getAllVideos, productCategories } from "../utils";
 
 export const Explore = () => {
   const [videos, setVideos] = useState([]);
@@ -21,7 +20,7 @@ export const Explore = () => {
         <section className="category-chips lightbold">
           {productCategories.map((categ) => {
             return (
-              <a className="chip" href="/">
+              <a className="chip" href="/" key={categ}>
                 {categ}
               </a>
             );

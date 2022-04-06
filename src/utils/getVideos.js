@@ -3,7 +3,6 @@ import axios from "axios";
 export const getAllVideos = async () => {
   try {
     let { data } = await axios.get(`/api/videos`);
-    console.log(data);
     if (data.videos) return data.videos;
     return [];
   } catch (err) {

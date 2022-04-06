@@ -10,7 +10,7 @@ export const Navbar = () => {
     <nav className="nav-bar">
       <div className="h3 nav-txt">
         <Link to="/" className="flex-row align-items-center gap0p5">
-          <img src={sageLogo} className="img-responsive" />{" "}
+          <img src={sageLogo} className="img-responsive" alt="Main Logo" />{" "}
           <span>Sage Mode</span>
         </Link>
       </div>

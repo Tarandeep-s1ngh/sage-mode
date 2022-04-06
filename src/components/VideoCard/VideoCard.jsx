@@ -20,7 +20,7 @@ export const VideoCard = ({ video }) => {
           </div>
         </div>
         <div className="card-header-txt vid-card-header-txt">
-          <Link to="/singlevideo">
+          <Link to={`/singlevideo/${video._id}`}>
             <h3 className="semibold vid-card-title">{video.title}</h3>
           </Link>
           <small className="gray-color">{video.creator}</small>
