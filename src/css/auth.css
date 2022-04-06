@@ -2,7 +2,7 @@
 .auth-wrapper {
     max-width: 35rem;
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 64px;
     padding: 1rem 1rem 0.5rem 1rem;
     border: 2px solid var(--accent-color);
     border-radius: 10px;

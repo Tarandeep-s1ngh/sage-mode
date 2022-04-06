@@ -134,7 +134,9 @@ a:hover {
     display: flex;
 }
 
-.main-content {    
+.main-content {
+    margin-left: 220px;
+    margin-top: 61.95px;
     background-color: var(--black);
     flex-grow: 1;
     padding: 1.5rem 2rem;
