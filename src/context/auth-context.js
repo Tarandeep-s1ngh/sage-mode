@@ -6,7 +6,10 @@ import { useEffect, useState } from "react";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [userState, setUserState] = useState({});
+  const [userState, setUserState] = useState({
+    userDetails: "",
+    token: "",
+  });
   const navigate = useNavigate();
 
   const login = async (email, password) => {
@@ -59,7 +62,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setUserState({});
+    setUserState({
+      userDetails: "",
+      token: "",
+    });
     localStorage.removeItem("AUTH");
     navigate("/explore");
   };

@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Analysis",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Analysis of various chess games, including the current tournaments and famous historic games played by some of the best players of all time",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Tutorial",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "All the things you need to know about chess at different difficulty levels, from beginner to master",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Casual",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "Fun chess streams, with a lot of knowledge and laughter packed in a single place! Including the casual late night puzzle rush",
   },
 ];

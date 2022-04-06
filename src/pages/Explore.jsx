@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { categories } from "../backend/db/categories";
 import { Sidebar, VideoCard } from "../components";
-import { getAllVideos, productCategories } from "../utils";
+import { getAllVideos } from "../utils";
 
 export const Explore = () => {
   const [videos, setVideos] = useState([]);
@@ -18,10 +19,10 @@ export const Explore = () => {
 
       <main className="main-content">
         <section className="category-chips lightbold">
-          {productCategories.map((categ) => {
+          {categories.map((categ) => {
             return (
-              <a className="chip" href="/" key={categ}>
-                {categ}
+              <a className="chip" href="/" key={categ._id}>
+                {categ.categoryName}
               </a>
             );
           })}
