@@ -17,9 +17,9 @@ export const VideoCard = () => {
             <i className="fas fa-bookmark"></i>
           </div>
         </div>
-        <div className="card-header-txt">
-          <Link to="/singlevideo">
-            <h3 className="semibold">Opening Theory</h3>
+        <div className="card-header-txt vid-card-header-txt">
+          <Link to={`/singlevideo/${video._id}`}>
+            <h3 className="semibold vid-card-title">{video.title}</h3>
           </Link>
           <small className="gray-color">ChessBase India</small>
         </div>

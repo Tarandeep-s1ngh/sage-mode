@@ -55,3 +55,14 @@
 .vid-card-icon:hover {
     color: var(--accent-color);
 }
+
+.single-video-card {
+    max-width: 55rem;
+    margin: auto;
+}
+
+.single-video-card iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 1rem;
+}

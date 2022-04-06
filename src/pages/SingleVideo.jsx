@@ -1,47 +1,66 @@
-import { thumbnail1, thumbnail3 } from "../assets";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Sidebar } from "../components";
+import { getVideo } from "../utils";
 
 export const SingleVideo = () => {
+  const [currVideo, setCurrVideo] = useState({});
+  const { videoId } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      const resVideo = await getVideo(videoId);
+      setCurrVideo(resVideo);
+    })();
+  }, [videoId]);
   return (
     <div className="explore-wrapper">
       <Sidebar />
 
       <main className="main-content">
-        <section
-          className="single-video-card"
-          style={{ width: "882px", margin: "auto" }}
-          //   INLINE STYLES WILL BE REMOVED AFTER EMBEDDING VIDEO
-        >
-          {/* INLINE STYLES WILL BE REMOVED AFTER EMBEDDING VIDEO */}
-          <div className="main-video-embed" style={{ width: "882px" }}>
-            <img
-              src={thumbnail3}
-              alt=""
-              style={{ objectFit: "cover", aspectRatio: "2/1" }}
-            />
-            {/* INLINE STYLES WILL BE REMOVED AFTER EMBEDDING VIDEO */}
+        <section className="single-video-card">
+          <div>
+            <iframe
+              width="100%"
+              height="500px"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen=""
+            ></iframe>
           </div>
-          <div className="video-decription flex-row-wrap align-items-center justify-sb">
+          <div className="video-info flex-row-wrap align-items-center justify-sb">
             <div className="main-video-title">
-              <div class="avatar-sm-size">
-                <img class="img-round avatar-round" src={thumbnail1} />
-              </div>
-              <div>
-                <h3>Opening Theory</h3>
-                <small className="light-gray-color">ChessBase India</small>
-              </div>
+              <h3>{currVideo.title}</h3>
             </div>
 
             <div className="category-chips lightbold">
-              <a href="/">
-                <i class="far fa-thumbs-up"></i>
+              <a className="flex-row align-items-center" href="/">
+                <i className="far fa-thumbs-up"></i>
               </a>
-              <a href="/">
-                <i class="far fa-bookmark"></i>
+              <a className="flex-row align-items-center" href="/">
+                <i className="far fa-bookmark"></i>
               </a>
-              <a href="/">
-                <i className="material-icons">playlist_add</i>
+              <a className="flex-row align-items-center" href="/">
+                <i className="material-icons video-info-icon">playlist_add</i>
               </a>
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="flex-row align-items-fs gap1">
+            <div className="avatar-lg-size">
+              <img
+                className="img-round avatar-round"
+                alt="channel logo"
+                src={currVideo.logo}
+              />
+            </div>
+            <div>
+              <h4 className="light-gray-color t1p125">{currVideo.creator}</h4>
+              <div className="mt-0p5 main-video-description">
+                {currVideo.description}
+              </div>
             </div>
           </div>
         </section>

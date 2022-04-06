@@ -32,7 +32,7 @@
     color: var(--light-gray);
 }
 
-.pt-0p5 {
+.mt-0p5 {
     margin-top: 0.5rem;
 }
 
@@ -73,9 +73,8 @@ a:hover {
 }
 
 .divider {
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--dark-gray);
-    margin: auto;
+    margin: 0 auto 1rem;
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .divider-a {
@@ -170,6 +169,10 @@ a:hover {
     gap: 0.5rem;
 }
 
+.gap1 {
+    gap: 1rem;
+}
+
 .f-grow {
     flex-grow: 1;
 }
@@ -184,6 +187,10 @@ a:hover {
 
 .align-items-center {
     align-items: center;
+}
+
+.align-items-fs {
+    align-items: flex-start;
 }
 
 /* TOOLTIP */

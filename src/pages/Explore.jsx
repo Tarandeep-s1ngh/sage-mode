@@ -1,4 +1,5 @@
 import { Sidebar, VideoCard } from "../components";
+import { getAllVideos, productCategories } from "../utils";
 
 export const Explore = () => {
   return (
@@ -7,15 +8,13 @@ export const Explore = () => {
 
       <main className="main-content">
         <section className="category-chips lightbold">
-          <a className="chip" href="/">
-            Tourney
-          </a>
-          <a className="chip" href="/">
-            Tutorial
-          </a>
-          <a className="chip" href="/">
-            Practice
-          </a>
+          {productCategories.map((categ) => {
+            return (
+              <a className="chip" href="/" key={categ}>
+                {categ}
+              </a>
+            );
+          })}
         </section>
 
         <section className="video-listing">
