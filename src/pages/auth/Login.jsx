@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../../context";
 
 export const Login = () => {
+  const [userDetails, setUserDetails] = useState({ email: "", passowrd: "" });
+  const { login } = useAuth();
+
   return (
     <main className="main-wrapper">
       <div className="auth-wrapper">
@@ -11,10 +16,29 @@ export const Login = () => {
         <section className="quiz-content">
           <form action="" className="input-validation">
             <label htmlFor="email-input"></label>
-            <input type="email" placeholder="Enter Email" required />
+            <input
+              onChange={(e) =>
+                setUserDetails((prev) => ({ ...prev, email: e.target.value }))
+              }
+              value={userDetails.email}
+              type="email"
+              placeholder="Enter Email"
+              required
+            />
 
             <label htmlFor="password"></label>
-            <input type="password" placeholder="Enter Password" required />
+            <input
+              onChange={(e) =>
+                setUserDetails((prev) => ({
+                  ...prev,
+                  passowrd: e.target.value,
+                }))
+              }
+              value={userDetails.passowrd}
+              type="password"
+              placeholder="Enter Password"
+              required
+            />
 
             <span className="input-span">
               <Link to="/forgot" className="input-validation-link">
@@ -28,9 +52,12 @@ export const Login = () => {
             </span>
           </form>
 
-          <Link to="/profile" className="btn-primary next-quest btn-login">
+          <button
+            onClick={() => login(userDetails.email, userDetails.passowrd)}
+            className="btn-primary next-quest btn-login"
+          >
             Login ▶
-          </Link>
+          </button>
           <Link to="/" className="btn-primary next-quest btn-home">
             Home 🏠
           </Link>

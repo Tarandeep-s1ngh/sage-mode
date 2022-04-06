@@ -115,12 +115,6 @@ button:hover {
     color: var(--white);
 }
 
-a.icon-in-nav:hover {
-    color: var(--white);
-    background-color: unset;
-    cursor: pointer;
-}
-
 a:hover {
     color: var(--accent-color);
 }

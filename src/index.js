@@ -4,7 +4,7 @@ import { makeServer } from "./server";
 
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-// import { ProductProvider } from "./context";
+import { AuthProvider } from "./context";
 
 // Call make Server
 makeServer();
@@ -15,11 +15,9 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
-      {/* <ProductProvider> */}
-      {/* <FilterProvider> */}
-      <App />
-      {/* </FilterProvider> */}
-      {/* </ProductProvider> */}
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -1,27 +1,36 @@
+import { useEffect, useState } from "react";
 import { Sidebar, VideoCard } from "../components";
+import { productCategories } from "../utils";
+import { getAllVideos } from "../utils/getVideos";
 
 export const Explore = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allVideos = await getAllVideos();
+      setVideos(allVideos);
+    })();
+  }, []);
+
   return (
     <div className="explore-wrapper">
       <Sidebar />
 
       <main className="main-content">
         <section className="category-chips lightbold">
-          <a className="chip" href="/">
-            Tourney
-          </a>
-          <a className="chip" href="/">
-            Tutorial
-          </a>
-          <a className="chip" href="/">
-            Practice
-          </a>
+          {productCategories.map((categ) => {
+            return (
+              <a className="chip" href="/">
+                {categ}
+              </a>
+            );
+          })}
         </section>
 
         <section className="video-listing">
-          {/* TO BE CHANGED WITH FUNCTIONALITY */}
-          {[...Array(9)].map(() => {
-            return <VideoCard />;
+          {videos.map((video) => {
+            return <VideoCard key={videos._id} video={video} />;
           })}
         </section>
       </main>

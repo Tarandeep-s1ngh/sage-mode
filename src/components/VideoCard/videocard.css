@@ -2,6 +2,7 @@
     background-color: var(--primary-color);
     border-radius: 1rem;
     box-shadow: 0 0 0 2.5px var(--accent-color);
+    overflow: hidden;
 }
 
 .thumbnail-image {
@@ -12,9 +13,17 @@
     object-position: center;
 }
 
-.card-header-txt {
+.vid-card-header-txt {
     padding: 0.5rem 1rem;
     padding-bottom: 1rem;
+    width: 18.75rem;
+}
+
+.vid-card-title {
+    font-size: 1.3rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .card-header {
