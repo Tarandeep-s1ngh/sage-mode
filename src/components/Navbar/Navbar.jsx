@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { sageLogo } from "../../assets";
 import { useAuth, useFilter } from "../../context";
@@ -7,6 +7,7 @@ import "./navbar.css";
 export const Navbar = () => {
   const { isLogedIn, logout } = useAuth();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isHome = () => (pathname === "/" ? true : false);
 
@@ -19,6 +20,19 @@ export const Navbar = () => {
         type: "SEARCH_VIDEO",
         payload: { searchBy: e.target.value },
       });
+      if (pathname !== "/explore") {
+        navigate("/explore");
+      }
+    }
+  };
+
+  const searchClickHandler = () => {
+    dispatch({
+      type: "SEARCH_VIDEO",
+      payload: { searchBy: searchInput },
+    });
+    if (pathname !== "/explore") {
+      navigate("/explore");
     }
   };
 
@@ -40,7 +54,7 @@ export const Navbar = () => {
           onKeyDown={(e) => searchHandler(e)}
           onChange={(e) => setsearchInput(e.target.value)}
         />
-        <i className="fas fa-search"></i>
+        <i onClick={() => searchClickHandler()} className="fas fa-search"></i>
       </div>
 
       {pathname !== "/explore" ? (
