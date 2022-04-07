@@ -46,6 +46,10 @@
     background-color: unset;
 }
 
+.vid-card-title-hover:hover {
+    color: var(--accent-color);
+}
+
 .vid-card-icon {
     border-radius: 50%;
     background-color: var(--vid-icon-bg);

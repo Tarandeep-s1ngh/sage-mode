@@ -18,7 +18,7 @@ export const Sidebar = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : null)}
-          to="/playlist"
+          to={isLogedIn() ? "/playlist" : "/login"}
         >
           <li className="odd-icon">
             <i className="material-icons">playlist_play</i>
@@ -27,7 +27,7 @@ export const Sidebar = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : null)}
-          to="/liked"
+          to={isLogedIn() ? "/liked" : "/login"}
         >
           <li>
             <i className="fas fa-heart"></i>
@@ -36,7 +36,7 @@ export const Sidebar = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : null)}
-          to="/watchlater"
+          to={isLogedIn() ? "/watchlater" : "/login"}
         >
           <li>
             <i className="fas fa-bookmark"></i>

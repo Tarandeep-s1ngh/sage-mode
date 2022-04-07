@@ -5,3 +5,4 @@ export {
   removeFromHistory,
   clearHistory,
 } from "./historyActions";
+export { addToWatchlater, removeFromWatchlater } from "./watchlaterActions";
