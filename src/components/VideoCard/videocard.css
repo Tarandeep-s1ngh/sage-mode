@@ -51,6 +51,16 @@
     background-color: var(--vid-icon-bg);
 }
 
+.history-icon {
+    border-radius: 50%;
+    background-color: var(--vid-icon-bg);
+    padding: 5px 8px;
+}
+
+.history-icon:hover {
+    color: var(--ecom-red);
+}
+
 .vid-card-icon:nth-child(1) {
     padding: 0px 3px;
     padding-top: 5px;

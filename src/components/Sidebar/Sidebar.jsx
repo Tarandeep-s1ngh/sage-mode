@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../context";
 
 export const Sidebar = () => {
+  const { isLogedIn } = useAuth();
+
   return (
     <aside className="sidebar semibold">
       <ul className="side-heading">
@@ -42,7 +45,7 @@ export const Sidebar = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : null)}
-          to="/history"
+          to={isLogedIn() ? "/history" : "/login"}
         >
           <li>
             <i className="fas fa-history"></i>

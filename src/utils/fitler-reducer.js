@@ -21,6 +21,24 @@ export const filterReducer = (state, action) => {
         filteredVideos: [...videos],
       };
 
+    case "ADD_TO_HISTORY":
+      return {
+        ...state,
+        history: [...action.payload.history],
+      };
+
+    case "REMOVE_FROM_HISTORY":
+      return {
+        ...state,
+        history: [...action.payload.history],
+      };
+
+    case "CLEAR_HISTORY":
+      return {
+        ...state,
+        history: [...action.payload.history],
+      };
+
     default:
       return { ...state };
   }

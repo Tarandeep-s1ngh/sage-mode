@@ -45,3 +45,9 @@
     max-width: 4rem;
     margin-top: 5px;
 }
+
+.btn-clear {
+    display: flex;
+    gap: 0.3rem;
+    padding-inline: 0.5rem;
+}

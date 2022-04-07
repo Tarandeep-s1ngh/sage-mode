@@ -81,8 +81,10 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const token = userState.token;
+
   return (
-    <AuthContext.Provider value={{ login, signup, logout, isLogedIn }}>
+    <AuthContext.Provider value={{ token, login, signup, logout, isLogedIn }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,8 +1,23 @@
 import React from "react";
 import "./videocard.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth, useFilter } from "../../context";
+import { addToHistory } from "../../utils/actions";
 
 export const VideoCard = ({ video }) => {
+  const navigate = useNavigate();
+  const { token } = useAuth();
+  const { state, dispatch } = useFilter();
+
+  const isInHistory = state.history.find(
+    (historyVideo) => historyVideo._id === video._id
+  );
+
+  const clickToVideoHandler = () => {
+    navigate(`/singlevideo/${video._id}`);
+    token && !isInHistory && addToHistory(dispatch, video, token);
+  };
+
   return (
     <div className="card-badge">
       <div className="card-header">
@@ -20,9 +35,9 @@ export const VideoCard = ({ video }) => {
           </div>
         </div>
         <div className="card-header-txt vid-card-header-txt">
-          <Link to={`/singlevideo/${video._id}`}>
+          <span onClick={() => clickToVideoHandler()}>
             <h3 className="semibold vid-card-title">{video.title}</h3>
-          </Link>
+          </span>
           <small className="gray-color">{video.creator}</small>
         </div>
       </div>
