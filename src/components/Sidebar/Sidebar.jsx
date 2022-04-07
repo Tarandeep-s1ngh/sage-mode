@@ -1,8 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context";
 
 export const Sidebar = () => {
-  const navigate = useNavigate();
   const { isLogedIn } = useAuth();
 
   return (

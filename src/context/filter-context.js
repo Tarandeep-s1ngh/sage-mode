@@ -1,7 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { filterReducer } from "../utils";
 import { videos } from "../backend/db/videos";
-import { useEffect } from "react";
 
 const FilterContext = createContext();
 
