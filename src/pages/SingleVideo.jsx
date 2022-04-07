@@ -68,7 +68,10 @@ export const SingleVideo = () => {
               >
                 <i className="far fa-bookmark"></i>
               </span>
-              <span className="flex-row align-items-center icon-hover">
+              <span
+                onClick={() => clickToWatchlater()}
+                className="flex-row align-items-center icon-hover"
+              >
                 <i className="material-icons video-info-icon">playlist_add</i>
               </span>
             </div>

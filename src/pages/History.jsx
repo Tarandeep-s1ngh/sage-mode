@@ -37,7 +37,7 @@ export const History = () => {
         ) : (
           <div className="flex-col empty-playlist">
             <div>Looks like you haven't watched anything yet.</div>
-            <Link to="/" className="btn-primary vid-btn">
+            <Link to="/explore" className="btn-primary vid-btn">
               Explore Now
             </Link>
           </div>

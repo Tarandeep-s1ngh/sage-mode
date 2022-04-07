@@ -35,7 +35,7 @@ export const VideoCard = ({ video }) => {
           alt={video.title}
         />
         <div className="card-floating-icon">
-          <div className="vid-card-icon">
+          <div onClick={() => clickToWatchlater()} className="vid-card-icon">
             <i className="material-icons">playlist_play</i>
           </div>
           <div onClick={() => clickToWatchlater()} className="vid-card-icon">
