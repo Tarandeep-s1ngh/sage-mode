@@ -19,6 +19,7 @@ export const filterReducer = (state, action) => {
       return {
         videosList: [...videos],
         filteredVideos: [...videos],
+        history: [],
       };
 
     case "ADD_TO_HISTORY":
