@@ -58,9 +58,12 @@ export const Login = () => {
           >
             Login ▶
           </button>
-          <Link to="/" className="btn-primary next-quest btn-home">
-            Home 🏠
-          </Link>
+          <button
+            onClick={() => login("test1608@gmail.com", "test@1608")}
+            className="btn-primary next-quest btn-login"
+          >
+            Guest Login ▶
+          </button>
 
           <div className="text-center mt-1">
             Not a user yet? &nbsp;
