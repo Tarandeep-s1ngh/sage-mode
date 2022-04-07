@@ -17,10 +17,9 @@ export const filterReducer = (state, action) => {
 
     case "CLEAR_FILTER":
       return {
+        ...state,
         videosList: [...videos],
         filteredVideos: [...videos],
-        history: [],
-        watchlater: [],
       };
 
     case "ADD_TO_HISTORY":
@@ -51,6 +50,18 @@ export const filterReducer = (state, action) => {
       return {
         ...state,
         watchlater: [...action.payload.watchlater],
+      };
+
+    case "LIKED":
+      return {
+        ...state,
+        liked: [...action.payload.likes],
+      };
+
+    case "DISLIKED":
+      return {
+        ...state,
+        liked: [...action.payload.likes],
       };
 
     default:
