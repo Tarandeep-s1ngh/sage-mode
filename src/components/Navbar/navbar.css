@@ -127,6 +127,17 @@
     .search-bar {
         width: 8rem;
     }
+    .side-title {
+        display: none;
+    }
+    .sidebar {
+        flex: 0 0 80px;
+        margin-top: 74.75px;
+        position: fixed;
+        left: 0;
+        overflow-y: auto;
+        z-index: 5;
+    }
 }
 
 

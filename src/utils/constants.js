@@ -4,4 +4,6 @@ const awesomeIcons = [
   { icon: "chess", title: "Casual", categ: "Casual" },
 ];
 
-export { awesomeIcons };
+const productCategories = ["All", "Analysis", "Tutorial", "Casual"];
+
+export { awesomeIcons, productCategories };

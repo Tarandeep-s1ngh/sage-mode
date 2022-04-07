@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
-import { categories } from "../backend/db/categories";
 import { Sidebar, VideoCard } from "../components";
-import { getAllVideos } from "../utils";
+import { useFilter } from "../context";
+import { productCategories } from "../utils";
 
 export const Explore = () => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const allVideos = await getAllVideos();
-      setVideos(allVideos);
-    })();
-  }, []);
+  const { state, dispatch } = useFilter();
 
   return (
     <div className="explore-wrapper">
@@ -19,18 +11,26 @@ export const Explore = () => {
 
       <main className="main-content">
         <section className="category-chips lightbold">
-          {categories.map((categ) => {
+          {productCategories.map((categ) => {
             return (
-              <a className="chip" href="/" key={categ._id}>
-                {categ.categoryName}
-              </a>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: "SORT_CATEGORY",
+                    payload: { categName: categ },
+                  });
+                }}
+                className="chip"
+                key={categ}
+              >
+                {categ}
+              </button>
             );
           })}
         </section>
-
         <section className="video-listing">
-          {videos.map((video) => {
-            return <VideoCard key={videos._id} video={video} />;
+          {state.filteredVideos.map((video) => {
+            return <VideoCard key={video._id} video={video} />;
           })}
         </section>
       </main>

@@ -1,2 +1,4 @@
-export { awesomeIcons } from "./constants";
-export { getAllVideos, getVideo } from "./getVideos";
+export { awesomeIcons, productCategories } from "./constants";
+export { getVideo } from "./getVideos";
+export { filterReducer } from "./fitler-reducer";
+export { sortVideos } from "./actions/sortVideos";

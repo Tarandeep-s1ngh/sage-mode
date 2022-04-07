@@ -1,13 +1,40 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { sageLogo } from "../../assets";
-import { useAuth } from "../../context";
+import { useAuth, useFilter } from "../../context";
 import "./navbar.css";
 
 export const Navbar = () => {
   const { isLogedIn, logout } = useAuth();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isHome = () => (pathname === "/" ? true : false);
+
+  const { dispatch } = useFilter();
+  const [searchInput, setsearchInput] = useState("");
+
+  const searchHandler = (e) => {
+    if (e.key === "Enter" || e.keyCode === 8 || e.target.value === "") {
+      dispatch({
+        type: "SEARCH_VIDEO",
+        payload: { searchBy: e.target.value },
+      });
+      if (pathname !== "/explore") {
+        navigate("/explore");
+      }
+    }
+  };
+
+  const searchClickHandler = () => {
+    dispatch({
+      type: "SEARCH_VIDEO",
+      payload: { searchBy: searchInput },
+    });
+    if (pathname !== "/explore") {
+      navigate("/explore");
+    }
+  };
 
   return (
     <nav className={isHome() ? "nav-bar" : "nav-bar nav-fixed"}>
@@ -18,8 +45,16 @@ export const Navbar = () => {
         </Link>
       </div>
       <div className="search-bar flex-row justify-sb align-items-center">
-        <input type="text" className="search-input" />
-        <i className="fas fa-search"></i>
+        <input
+          type="text"
+          name="search"
+          value={searchInput}
+          placeholder="Search"
+          className="search-input"
+          onKeyDown={(e) => searchHandler(e)}
+          onChange={(e) => setsearchInput(e.target.value)}
+        />
+        <i onClick={() => searchClickHandler()} className="fas fa-search"></i>
       </div>
 
       {pathname !== "/explore" ? (
@@ -45,6 +80,14 @@ export const Navbar = () => {
 
             <span className="tooltiptext">Logout</span>
           </button>
+          <button
+            onClick={() => logout()}
+            className="icon-in-nav nav-hamburger tooltip"
+          >
+            <i className="fas fa-sign-out-alt"></i>
+
+            <span className="tooltiptext">Logout</span>
+          </button>
         </>
       ) : (
         <>
@@ -53,12 +96,11 @@ export const Navbar = () => {
 
             <span className="tooltiptext">Login</span>
           </Link>
+          <Link to="/login" className="icon-in-nav nav-hamburger">
+            <i className="fas fa-user-circle"></i>
+          </Link>
         </>
       )}
-
-      <Link to="/" className="icon-in-nav nav-hamburger">
-        <i className="fas fa-bars"></i>
-      </Link>
     </nav>
   );
 };

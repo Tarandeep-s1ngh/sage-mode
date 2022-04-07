@@ -10,7 +10,7 @@ export const Sidebar = () => {
         >
           <li>
             <i className="fas fa-compass"></i>
-            <span> Explore</span>
+            <span className="side-title"> Explore</span>
           </li>
         </NavLink>
         <NavLink
@@ -19,7 +19,7 @@ export const Sidebar = () => {
         >
           <li className="odd-icon">
             <i className="material-icons">playlist_play</i>
-            <span> Playlist</span>
+            <span className="side-title"> Playlist</span>
           </li>
         </NavLink>
         <NavLink
@@ -28,7 +28,7 @@ export const Sidebar = () => {
         >
           <li>
             <i className="fas fa-heart"></i>
-            <span> Liked</span>
+            <span className="side-title"> Liked</span>
           </li>
         </NavLink>
         <NavLink
@@ -37,7 +37,7 @@ export const Sidebar = () => {
         >
           <li>
             <i className="fas fa-bookmark"></i>
-            <span> Watchlater</span>
+            <span className="side-title"> Watchlater</span>
           </li>
         </NavLink>
         <NavLink
@@ -46,7 +46,7 @@ export const Sidebar = () => {
         >
           <li>
             <i className="fas fa-history"></i>
-            <span> History</span>
+            <span className="side-title"> History</span>
           </li>
         </NavLink>
       </ul>
