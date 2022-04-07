@@ -10,6 +10,7 @@ const FilterProvider = ({ children }) => {
     filteredVideos: [...videos],
     history: [],
     watchlater: [],
+    liked: [],
   };
 
   const [state, dispatch] = useReducer(filterReducer, initialState);

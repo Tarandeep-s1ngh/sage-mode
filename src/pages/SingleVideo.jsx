@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Sidebar } from "../components";
 import { useAuth, useFilter } from "../context";
 import { getVideo } from "../utils";
-import { addToWatchlater } from "../utils/actions";
+import { addToWatchlater, liked } from "../utils/actions";
 
 export const SingleVideo = () => {
   const [currVideo, setCurrVideo] = useState({});
@@ -21,8 +21,16 @@ export const SingleVideo = () => {
     (watchlaterVideo) => watchlaterVideo._id === currVideo._id
   );
 
+  const isInLiked = state.liked.find(
+    (likedVideo) => likedVideo._id === currVideo._id
+  );
+
   const clickToWatchlater = () => {
     token && !isInWatchlater && addToWatchlater(dispatch, currVideo, token);
+  };
+
+  const clickToLike = () => {
+    token && !isInLiked && liked(dispatch, currVideo, token);
   };
 
   return (
@@ -48,18 +56,21 @@ export const SingleVideo = () => {
             </div>
 
             <div className="category-chips lightbold">
-              <a className="flex-row align-items-center" href="/">
+              <span
+                onClick={() => clickToLike()}
+                className="flex-row align-items-center icon-hover"
+              >
                 <i className="far fa-thumbs-up"></i>
-              </a>
+              </span>
               <span
                 onClick={() => clickToWatchlater()}
                 className="flex-row align-items-center icon-hover"
               >
                 <i className="far fa-bookmark"></i>
               </span>
-              <a className="flex-row align-items-center" href="/">
+              <span className="flex-row align-items-center icon-hover">
                 <i className="material-icons video-info-icon">playlist_add</i>
-              </a>
+              </span>
             </div>
           </div>
           <div className="divider"></div>

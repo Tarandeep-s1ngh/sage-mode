@@ -6,3 +6,4 @@ export {
   clearHistory,
 } from "./historyActions";
 export { addToWatchlater, removeFromWatchlater } from "./watchlaterActions";
+export { liked, disliked } from "./likeActions";
