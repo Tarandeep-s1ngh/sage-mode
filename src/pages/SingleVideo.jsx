@@ -1,18 +1,30 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Sidebar } from "../components";
+import { useAuth, useFilter } from "../context";
 import { getVideo } from "../utils";
+import { addToWatchlater } from "../utils/actions";
 
 export const SingleVideo = () => {
   const [currVideo, setCurrVideo] = useState({});
   const { videoId } = useParams();
-
+  const { token } = useAuth();
+  const { state, dispatch } = useFilter();
   useEffect(() => {
     (async () => {
       const resVideo = await getVideo(videoId);
       setCurrVideo(resVideo);
     })();
   }, [videoId]);
+
+  const isInWatchlater = state.watchlater.find(
+    (watchlaterVideo) => watchlaterVideo._id === currVideo._id
+  );
+
+  const clickToWatchlater = () => {
+    token && !isInWatchlater && addToWatchlater(dispatch, currVideo, token);
+  };
+
   return (
     <div className="explore-wrapper">
       <Sidebar />
@@ -39,9 +51,12 @@ export const SingleVideo = () => {
               <a className="flex-row align-items-center" href="/">
                 <i className="far fa-thumbs-up"></i>
               </a>
-              <a className="flex-row align-items-center" href="/">
+              <span
+                onClick={() => clickToWatchlater()}
+                className="flex-row align-items-center icon-hover"
+              >
                 <i className="far fa-bookmark"></i>
-              </a>
+              </span>
               <a className="flex-row align-items-center" href="/">
                 <i className="material-icons video-info-icon">playlist_add</i>
               </a>

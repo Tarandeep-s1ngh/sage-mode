@@ -44,7 +44,7 @@ export const removeFromHistory = (dispatch, id, token) => {
         });
     })();
   } catch (error) {
-    console.log("Error in remove from history handler", error);
+    console.log("Error! Couldn't remove from History", error);
   }
 };
 

@@ -20,6 +20,7 @@ export const filterReducer = (state, action) => {
         videosList: [...videos],
         filteredVideos: [...videos],
         history: [],
+        watchlater: [],
       };
 
     case "ADD_TO_HISTORY":
@@ -38,6 +39,18 @@ export const filterReducer = (state, action) => {
       return {
         ...state,
         history: [...action.payload.history],
+      };
+
+    case "ADD_TO_WATCHLATER":
+      return {
+        ...state,
+        watchlater: [...action.payload.watchlater],
+      };
+
+    case "REMOVE_FROM_WATCHLATER":
+      return {
+        ...state,
+        watchlater: [...action.payload.watchlater],
       };
 
     default:
