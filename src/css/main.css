@@ -133,6 +133,11 @@
     justify-content: space-evenly;
 }
 
+.icon-hover:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
 /*=============================================
 =            Media Queries            =
 =============================================*/
