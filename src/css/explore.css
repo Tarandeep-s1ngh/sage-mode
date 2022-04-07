@@ -6,10 +6,12 @@
 }
 
 .chip {
-    padding: 0.4rem 0.8rem;
+    padding: 0.3rem 0.7rem;
     background-color: var(--primary-color);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     border: 2px solid var(--accent-color);
+    color: var(--white);
+    cursor: pointer;
 }
 
 .video-listing {

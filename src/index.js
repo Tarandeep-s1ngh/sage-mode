@@ -4,7 +4,7 @@ import { makeServer } from "./server";
 
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./context";
+import { AuthProvider, DataProvider, FilterProvider } from "./context";
 
 // Call make Server
 makeServer();
@@ -16,7 +16,11 @@ root.render(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <DataProvider>
+          <FilterProvider>
+            <App />
+          </FilterProvider>
+        </DataProvider>
       </AuthProvider>
     </BrowserRouter>
   </StrictMode>

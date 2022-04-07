@@ -75,3 +75,13 @@
     height: 500px;
     border-radius: 1rem;
 }
+
+
+@media screen and (max-width: 30em) {
+    .single-video-card iframe {
+        width: 100%;
+        height: 200px;
+        border-radius: 1rem;
+    }
+
+}
