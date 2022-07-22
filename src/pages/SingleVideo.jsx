@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Sidebar } from "../components";
+import { useNavigate, useParams } from "react-router-dom";
+import { PlaylistModal, Sidebar } from "../components";
 import { useAuth, useFilter } from "../context";
 import { getVideo } from "../utils";
-import { addToWatchlater, liked } from "../utils/actions";
+import { addToWatchlater, liked, removeFromWatchlater } from "../utils/actions";
 
 export const SingleVideo = () => {
   const [currVideo, setCurrVideo] = useState({});
   const { videoId } = useParams();
+  const navigate = useNavigate();
   const { token } = useAuth();
   const { state, dispatch } = useFilter();
   useEffect(() => {
@@ -26,11 +27,21 @@ export const SingleVideo = () => {
   );
 
   const clickToWatchlater = () => {
-    token && !isInWatchlater && addToWatchlater(dispatch, currVideo, token);
+    if (token) {
+      isInWatchlater
+        ? removeFromWatchlater(dispatch, currVideo._id, token)
+        : addToWatchlater(dispatch, currVideo, token);
+    } else navigate("/login");
   };
 
   const clickToLike = () => {
-    token && !isInLiked && liked(dispatch, currVideo, token);
+    token
+      ? !isInLiked && liked(dispatch, currVideo, token)
+      : navigate("/login");
+  };
+
+  const openPlaylistModal = () => {
+    token ? dispatch({ type: "TOGGLE_PLAYLIST_MODAL" }) : navigate("/login");
   };
 
   return (
@@ -38,6 +49,10 @@ export const SingleVideo = () => {
       <Sidebar />
 
       <main className="main-content">
+        {/* <div className="alert alert-icon alert-success">
+          <i className="fas fa-check-circle"></i> Profile has been updated
+          successfully!
+        </div> */}
         <section className="single-video-card">
           <div>
             <iframe
@@ -60,16 +75,24 @@ export const SingleVideo = () => {
                 onClick={() => clickToLike()}
                 className="flex-row align-items-center icon-hover"
               >
-                <i className="far fa-thumbs-up"></i>
+                {isInLiked ? (
+                  <i className="fas fa-thumbs-up"></i>
+                ) : (
+                  <i className="far fa-thumbs-up"></i>
+                )}
               </span>
               <span
                 onClick={() => clickToWatchlater()}
                 className="flex-row align-items-center icon-hover"
               >
-                <i className="far fa-bookmark"></i>
+                {isInWatchlater ? (
+                  <i className="fas fa-bookmark"></i>
+                ) : (
+                  <i className="far fa-bookmark"></i>
+                )}
               </span>
               <span
-                onClick={() => clickToWatchlater()}
+                onClick={() => openPlaylistModal()}
                 className="flex-row align-items-center icon-hover"
               >
                 <i className="material-icons video-info-icon">playlist_add</i>
@@ -93,6 +116,12 @@ export const SingleVideo = () => {
             </div>
           </div>
         </section>
+        <div
+          className={state.isPlaylistOpen ? "modal-container" : "dis-none"}
+          onClick={() => dispatch({ type: "TOGGLE_PLAYLIST_MODAL" })}
+        >
+          <PlaylistModal key={currVideo._id} video={currVideo} />
+        </div>
       </main>
     </div>
   );

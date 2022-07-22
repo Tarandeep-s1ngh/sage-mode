@@ -7,3 +7,10 @@ export {
 } from "./historyActions";
 export { addToWatchlater, removeFromWatchlater } from "./watchlaterActions";
 export { liked, disliked } from "./likeActions";
+export {
+  createPlaylist,
+  deletePlaylist,
+  addVideoToPlaylist,
+  getSinglePlaylist,
+  removeVideoFromPlaylist,
+} from "./playlistActions";

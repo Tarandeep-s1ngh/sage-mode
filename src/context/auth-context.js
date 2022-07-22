@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
             token: encodedToken,
           })
         );
-        navigate("/explore");
+        navigate("/explore", { replace: true });
       }
     } catch (error) {
       console.error(error);
@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
             token: encodedToken,
           })
         );
-        navigate("/explore");
+        navigate("/explore", { replace: true });
       }
     } catch (error) {
       console.error(error);

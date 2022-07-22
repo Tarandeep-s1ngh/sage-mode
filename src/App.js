@@ -13,6 +13,7 @@ import {
   Playlist,
   Profile,
   Signup,
+  SinglePlaylist,
   SingleVideo,
   Watchlater,
 } from "./pages";
@@ -35,6 +36,10 @@ function App() {
           <Route path="watchlater" element={<Watchlater />} />
           <Route path="history" element={<History />} />
           <Route path="singlevideo/:videoId" element={<SingleVideo />} />
+          <Route
+            path="singleplaylist/:playlistId"
+            element={<SinglePlaylist />}
+          />
           <Route path="login" element={<Login />} />
           <Route path="profile" element={<Profile />} />
           <Route path="signup" element={<Signup />} />

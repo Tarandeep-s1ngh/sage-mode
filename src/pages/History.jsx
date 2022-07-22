@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HistoryCard, Sidebar } from "../components";
+import { Sidebar, CardWithDeleteBtn } from "../components";
 import { useAuth, useFilter } from "../context";
 import { clearHistory } from "../utils/actions";
 
@@ -15,7 +15,9 @@ export const History = () => {
 
       <main className="main-content">
         <div className="flex-row justify-sb">
-          <h4 className="content-title semibold">Watch History</h4>
+          <h4 className="content-title semibold flex-row align-items-center">
+            Watch History
+          </h4>
 
           {inHistory && (
             <button
@@ -31,7 +33,11 @@ export const History = () => {
         {inHistory ? (
           <div className="video-listing">
             {state.history.map((video) => (
-              <HistoryCard key={video._id} video={video} />
+              <CardWithDeleteBtn
+                key={video._id}
+                video={video}
+                usedIn="history"
+              />
             ))}
           </div>
         ) : (

@@ -8,3 +8,4 @@ export { default as gothCh } from "./goth-ch.jpg";
 export { default as vdCh } from "./vd-ch.jpg";
 export { default as tanCh } from "./tan-ch.jpg";
 export { default as samCh } from "./sam-ch.jpg";
+export { default as plFolder } from "./pl-folder.jpg";

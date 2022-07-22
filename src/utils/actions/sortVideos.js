@@ -1,6 +1,6 @@
-export const sortVideos = (videos, sortBy) => {
-  if (sortBy && sortBy !== "All") {
-    return [...videos].filter((video) => video.category === sortBy);
+export const sortVideos = (videos, category) => {
+  if (category && category !== "All") {
+    return videos.filter((video) => video.category === category);
   }
-  return [...videos];
+  return videos;
 };

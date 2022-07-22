@@ -6,6 +6,7 @@ export { Liked } from "./Liked";
 export { Watchlater } from "./Watchlater";
 export { History } from "./History";
 export { SingleVideo } from "./SingleVideo";
+export { SinglePlaylist } from "./SinglePlaylist";
 
 export { Login } from "./auth/Login";
 export { Profile } from "./auth/Profile";

@@ -1,16 +1,19 @@
 import { createContext, useContext, useReducer } from "react";
 import { filterReducer } from "../utils";
-import { videos } from "../backend/db/videos";
 
 const FilterContext = createContext();
 
 const FilterProvider = ({ children }) => {
   const initialState = {
-    videosList: [...videos],
-    filteredVideos: [...videos],
+    category: "All",
+    searchQuery: "",
     history: [],
     watchlater: [],
     liked: [],
+    playlistName: "",
+    playlists: [],
+    isPlaylistOpen: false,
+    didPlaylistUpdate: false,
   };
 
   const [state, dispatch] = useReducer(filterReducer, initialState);

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sidebar, WatchlaterCard } from "../components";
+import { Sidebar, CardWithDeleteBtn } from "../components";
 import { useFilter } from "../context";
 
 export const Watchlater = () => {
@@ -17,7 +17,11 @@ export const Watchlater = () => {
         {inWatchlater ? (
           <div className="video-listing">
             {state.watchlater.map((video) => (
-              <WatchlaterCard key={video._id} video={video} />
+              <CardWithDeleteBtn
+                key={video._id}
+                video={video}
+                usedIn="watchlater"
+              />
             ))}
           </div>
         ) : (

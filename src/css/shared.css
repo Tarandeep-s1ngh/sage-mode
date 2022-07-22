@@ -20,6 +20,8 @@
     --ecom-box-shadow: #27374750;
     --ecom-hero-bg: #efefef;
     --vid-icon-bg: #000000b3;
+    --modal-bg: #00000014;
+    --playlist-overlay-bg: #00000050;
     --title-font: 'Poppins', sans-serif;
     font-size: 100%;
 }
@@ -72,6 +74,12 @@ a:hover {
     color: var(--accent-color);
 }
 
+label {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .divider {
     margin: 0 auto 1rem;
     border-bottom: 1px solid var(--light-gray);
@@ -97,6 +105,10 @@ a:hover {
 
 .dis-inline-block {
     display: inline-block;
+}
+
+.dis-none {
+    display: none;
 }
 
 button:hover {
@@ -187,6 +199,10 @@ a:hover {
 
 .align-items-fs {
     align-items: flex-start;
+}
+
+.label-full-width {
+    width: 100%;
 }
 
 /* TOOLTIP */

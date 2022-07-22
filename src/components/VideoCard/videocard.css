@@ -90,6 +90,33 @@
     border-radius: 1rem;
 }
 
+.playlist-overlay {
+    position: absolute;
+    right: 0;
+    width: 32%;
+    height: 100%;
+    background-color: var(--playlist-overlay-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-overlay > i {
+    font-size: 2rem;
+}
+
+.playlist-folder-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 30%;
+    left: 4%;
+    font-size: 1rem;
+    border-radius: unset;
+    padding: unset;
+}
+
 
 @media screen and (max-width: 30em) {
     .single-video-card iframe {

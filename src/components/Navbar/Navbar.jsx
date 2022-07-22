@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { sageLogo } from "../../assets";
-import { useAuth, useFilter } from "../../context";
+import { useAuth, useData, useFilter } from "../../context";
 import "./navbar.css";
 
 export const Navbar = () => {
@@ -12,6 +12,7 @@ export const Navbar = () => {
   const isHome = () => (pathname === "/" ? true : false);
 
   const { dispatch } = useFilter();
+
   const [searchInput, setsearchInput] = useState("");
 
   const searchHandler = (e) => {
@@ -41,7 +42,7 @@ export const Navbar = () => {
       <div className="h3 nav-txt">
         <Link to="/" className="flex-row align-items-center gap0p5">
           <img src={sageLogo} className="img-responsive" alt="Main Logo" />{" "}
-          <span>Sage Mode</span>
+          <span className="logo-title">Sage Mode</span>
         </Link>
       </div>
       <div className="search-bar flex-row justify-sb align-items-center">
@@ -51,6 +52,7 @@ export const Navbar = () => {
           value={searchInput}
           placeholder="Search"
           className="search-input"
+          autoComplete="off"
           onKeyDown={(e) => searchHandler(e)}
           onChange={(e) => setsearchInput(e.target.value)}
         />
@@ -75,11 +77,13 @@ export const Navbar = () => {
 
             <span className="tooltiptext">Liked</span>
           </Link>
+
           <button onClick={() => logout()} className="icon-in-nav tooltip">
             <i className="fas fa-sign-out-alt"></i>
 
             <span className="tooltiptext">Logout</span>
           </button>
+
           <button
             onClick={() => logout()}
             className="icon-in-nav nav-hamburger tooltip"

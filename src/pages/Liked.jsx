@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LikedCard, Sidebar } from "../components";
+import { Sidebar, CardWithDeleteBtn } from "../components";
 import { useFilter } from "../context";
 
 export const Liked = () => {
@@ -17,7 +17,7 @@ export const Liked = () => {
         {inLiked ? (
           <div className="video-listing">
             {state.liked.map((video) => (
-              <LikedCard key={video._id} video={video} />
+              <CardWithDeleteBtn key={video._id} video={video} usedIn="liked" />
             ))}
           </div>
         ) : (

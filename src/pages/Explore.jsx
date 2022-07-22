@@ -1,9 +1,15 @@
 import { Sidebar, VideoCard } from "../components";
-import { useFilter } from "../context";
-import { productCategories } from "../utils";
+import { useData, useFilter } from "../context";
+import { productCategories, searchVideos, sortVideos } from "../utils";
 
 export const Explore = () => {
   const { state, dispatch } = useFilter();
+
+  const { videos } = useData();
+
+  const searchedVideos = searchVideos(videos, state.searchQuery);
+
+  const filteredVideos = sortVideos(searchedVideos, state.category);
 
   return (
     <div className="explore-wrapper">
@@ -29,7 +35,7 @@ export const Explore = () => {
           })}
         </section>
         <section className="video-listing">
-          {state.filteredVideos.map((video) => {
+          {filteredVideos.map((video) => {
             return <VideoCard key={video._id} video={video} />;
           })}
         </section>

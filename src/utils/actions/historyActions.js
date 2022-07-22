@@ -19,7 +19,7 @@ export const addToHistory = async (dispatch, video, token) => {
       history &&
         dispatch({
           type: "ADD_TO_HISTORY",
-          payload: { history },
+          payload: { history: history.reverse() },
         });
     })();
   } catch (error) {
@@ -40,7 +40,7 @@ export const removeFromHistory = (dispatch, id, token) => {
       history &&
         dispatch({
           type: "REMOVE_FROM_HISTORY",
-          payload: { history },
+          payload: { history: history.reverse() },
         });
     })();
   } catch (error) {

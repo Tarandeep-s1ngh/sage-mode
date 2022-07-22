@@ -48,10 +48,15 @@
 .search-bar {
     border: 2px solid var(--accent-color);
     height: fit-content;
-    border-radius: 6px;
-    padding: 0 0.5rem;
+    border-radius: 16px;
+    padding: 0.2rem 0.5rem;
     width: 12rem;
     margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-bar:focus-within {
+    width: 14rem;
 }
 
 .search-input {
@@ -143,10 +148,15 @@
 
 /* Small Mobile Screens */
 
-@media screen and (max-width: 26em) {
+@media screen and (max-width: 27em) {
     .nav-txt > a > .fas {
         display: none;
     }
+
+    .logo-title {
+        display: none;
+    }
+
     .search-bar {
         width: 6rem;
     }
