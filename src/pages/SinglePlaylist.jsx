@@ -14,7 +14,7 @@ export const SinglePlaylist = () => {
       const resPlaylist = await getSinglePlaylist(playlistId, token);
       setCurrPlaylist(resPlaylist.videos);
     })();
-  }, [playlistId, state.didPlaylistUpdate]);
+  }, [playlistId, state.didPlaylistUpdate, token]);
 
   const inplaylist = currPlaylist?.length > 0;
 

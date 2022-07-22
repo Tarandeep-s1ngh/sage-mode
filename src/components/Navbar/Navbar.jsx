@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { sageLogo } from "../../assets";
-import { useAuth, useData, useFilter } from "../../context";
+import { useAuth, useFilter } from "../../context";
 import "./navbar.css";
 
 export const Navbar = () => {
