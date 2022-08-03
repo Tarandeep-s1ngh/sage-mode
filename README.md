@@ -50,16 +50,33 @@ Sage Mode is a video library for chess lovers. You can watch anything from chess
 - Like
 - Watch Later
 - Watch History
-- Playlist
+- Playlist (Create different playlist folders & add/remove videos)
 - Single Video Page
-- Filter Videos with Category
+- Filter Videos by Category
 
 <br />
+
 ### **Screenshots**
+
+#### **Landing Page**
 
 ![Landing Page](https://user-images.githubusercontent.com/65854945/162266934-a0c2bdd7-3fb2-4d26-b50e-bef80fbf860d.png)
 
+#### **Explore Page**
+
 ![Explore Page](https://user-images.githubusercontent.com/65854945/162267165-cd1a4fad-23e4-40db-9110-661776160254.png)
+
+#### **Watch History**
+
+![Watch History](https://user-images.githubusercontent.com/65854945/182578772-ebe780d9-9370-465c-bb03-45ec5c77cba6.png)
+
+#### **Liked Videos Mobile View**
+
+![Liked Videos Mobile View](https://user-images.githubusercontent.com/65854945/182579037-5ee45baf-6684-442b-9c88-507374258fab.png)
+
+#### **Single Video Page Tablet View**
+
+![Single Video Page Tablet View](https://user-images.githubusercontent.com/65854945/182579514-1592f0d3-d0de-4018-ab74-4e60c16c04ee.png)
 
 <br />
 
@@ -91,12 +108,13 @@ gh repo clone Tarandeep-s1ngh/Sheh-Mart-E-Commerce
 
 ### **Tech Stack**
 
-- HTML5
-- CSS3
-- JSX
+- JavaScript
 - React
+- Router
 - Axios
 - MockBee
+- HTML5
+- CSS3
 
 <br />
 
