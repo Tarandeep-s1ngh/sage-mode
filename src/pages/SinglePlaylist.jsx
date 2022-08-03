@@ -8,13 +8,21 @@ export const SinglePlaylist = () => {
   const [currPlaylist, setCurrPlaylist] = useState([]);
   const { playlistId } = useParams();
   const { token } = useAuth();
-  const { state } = useFilter();
+  const { state, dispatch } = useFilter();
   useEffect(() => {
     (async () => {
+      dispatch({
+        type: "LOADER_UPDATE",
+        payload: true,
+      });
       const resPlaylist = await getSinglePlaylist(playlistId, token);
       setCurrPlaylist(resPlaylist.videos);
+      dispatch({
+        type: "LOADER_UPDATE",
+        payload: false,
+      });
     })();
-  }, [playlistId, state.didPlaylistUpdate, token]);
+  }, [playlistId, state.didPlaylistUpdate, token, dispatch]);
 
   const inplaylist = currPlaylist?.length > 0;
 
@@ -29,26 +37,32 @@ export const SinglePlaylist = () => {
       <main className="main-content">
         <h4 className="content-title semibold">{currPlaylistFolder?.title}</h4>
 
-        {inplaylist ? (
-          <div className="video-listing">
-            {currPlaylist?.map((video) => (
-              <CardWithDeleteBtn
-                key={video._id}
-                video={video}
-                usedIn="singlePlaylist"
-                playlistId={playlistId}
-              />
-            ))}
-          </div>
+        {state.loading ? (
+          <span className="loader"></span>
         ) : (
-          <div className="flex-col empty-playlist">
-            <div>
-              Looks like you haven't added anything in this playlist yet.
-            </div>
-            <Link to="/explore" className="btn-primary vid-btn">
-              Explore Now
-            </Link>
-          </div>
+          <>
+            {inplaylist ? (
+              <div className="video-listing">
+                {currPlaylist?.map((video) => (
+                  <CardWithDeleteBtn
+                    key={video._id}
+                    video={video}
+                    usedIn="singlePlaylist"
+                    playlistId={playlistId}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="flex-col empty-playlist">
+                <div>
+                  Looks like you haven't added anything in this playlist yet.
+                </div>
+                <Link to="/explore" className="btn-primary vid-btn">
+                  Explore Now
+                </Link>
+              </div>
+            )}
+          </>
         )}
       </main>
     </div>

@@ -1,6 +1,8 @@
 import Mockman from "mockman-js";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { Navbar } from "./components";
 import {
@@ -46,6 +48,18 @@ function App() {
           <Route path="forgot" element={<Forgot />} />
           <Route path="mockman" element={<Mockman />} />
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="colored"
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </div>
   );

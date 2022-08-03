@@ -1,4 +1,5 @@
 import axios from "axios";
+import { triggerToast } from "../toastTrigger";
 
 export const createPlaylist = async (dispatch, playlistName, token) => {
   try {
@@ -23,7 +24,8 @@ export const createPlaylist = async (dispatch, playlistName, token) => {
         });
     })();
   } catch (error) {
-    console.log("Error! Couldn't Add To Playlists", error);
+    console.log("Error! Couldn't create playlist", error);
+    triggerToast("error", "Couldn't create playlist!");
   }
 };
 
@@ -42,9 +44,11 @@ export const deletePlaylist = (dispatch, id, token) => {
           type: "PLAYLIST_FOLDER",
           payload: { playlists },
         });
+      triggerToast("success", "Playlist deleted!");
     })();
   } catch (error) {
-    console.log("Error! Couldn't remove from Playlists", error);
+    console.log("Error! Couldn't delete playlist", error);
+    triggerToast("error", "Couldn't delete playlist!");
   }
 };
 
@@ -69,9 +73,11 @@ export const addVideoToPlaylist = (dispatch, id, token, video) => {
           type: "UPDATE_VIDEO_IN_PLAYLIST",
           payload: { playlist },
         });
+      triggerToast("success", "Added to playlist!");
     })();
   } catch (error) {
     console.log("Error! Couldn't add video to playlist", error);
+    triggerToast("error", "Couldn't add video to playlist!");
   }
 };
 
@@ -117,9 +123,11 @@ export const removeVideoFromPlaylist = (
         dispatch({
           type: "PLAYLIST_UPDATED",
         });
+        triggerToast("success", "Removed from playlist!");
       }
     })();
   } catch (error) {
     console.log("Error! Couldn't remove video from playlist", error);
+    triggerToast("error", "Couldn't remove video from playlist!");
   }
 };
