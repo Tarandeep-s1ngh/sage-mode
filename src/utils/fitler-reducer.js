@@ -95,6 +95,12 @@ export const filterReducer = (state, action) => {
         ),
       };
 
+    case "LOADER_UPDATE":
+      return {
+        ...state,
+        loading: action.payload,
+      };
+
     default:
       return { ...state };
   }

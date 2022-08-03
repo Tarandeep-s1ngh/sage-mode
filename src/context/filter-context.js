@@ -14,6 +14,7 @@ const FilterProvider = ({ children }) => {
     playlists: [],
     isPlaylistOpen: false,
     didPlaylistUpdate: false,
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(filterReducer, initialState);

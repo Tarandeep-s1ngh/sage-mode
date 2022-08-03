@@ -1,12 +1,6 @@
 import axios from "axios";
 
-// Context Module Function
 export const liked = async (dispatch, video, token) => {
-  // Optimistic Update
-  // dispatch({
-  //   type: "LIKED",
-  //   payload: { likes: [video] },
-  // });
   try {
     (async () => {
       const {
@@ -29,10 +23,6 @@ export const liked = async (dispatch, video, token) => {
         });
     })();
   } catch (error) {
-    // dispatch({
-    //   type: "DISLIKED",
-    //   payload: { likes: [video] },
-    // });
     console.log("Error! Couldn't Add To Likes", error);
   }
 };

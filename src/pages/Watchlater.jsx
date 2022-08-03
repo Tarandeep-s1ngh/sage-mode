@@ -32,6 +32,7 @@ export const Watchlater = () => {
             </Link>
           </div>
         )}
+        {state.loading ? <span className="loader"></span> : <></>}
       </main>
     </div>
   );
