@@ -30,7 +30,7 @@ export const Signup = () => {
               onChange={(e) =>
                 setUserDetails((prev) => ({ ...prev, email: e.target.value }))
               }
-              value={userDetails.email}
+              value={userDetails.email || ""}
               type="email"
               placeholder="Enter Email"
               required
@@ -45,7 +45,7 @@ export const Signup = () => {
                   password: e.target.value,
                 }))
               }
-              value={userDetails.password}
+              value={userDetails.password || ""}
               type="password"
               placeholder="Enter Password"
               required
