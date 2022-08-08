@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { triggerToast } from "../utils";
 
 const AuthContext = createContext();
 
@@ -12,7 +13,7 @@ const AuthProvider = ({ children }) => {
   });
   const navigate = useNavigate();
 
-  const login = async (email, password) => {
+  const login = async (email, password, remember = false) => {
     try {
       const res = await axios.post("/api/auth/login", { email, password });
 
@@ -21,17 +22,18 @@ const AuthProvider = ({ children }) => {
           data: { encodedToken, foundUser },
         } = res;
         setUserState({ userDetails: foundUser, token: encodedToken });
-        localStorage.setItem(
-          "AUTH",
-          JSON.stringify({
-            userDetails: foundUser,
-            token: encodedToken,
-          })
-        );
+        remember &&
+          localStorage.setItem(
+            "AUTH",
+            JSON.stringify({
+              userDetails: foundUser,
+              token: encodedToken,
+            })
+          );
         navigate("/explore", { replace: true });
       }
     } catch (error) {
-      console.error(error);
+      triggerToast("error", "The email you entered is not registered!");
     }
   };
 
@@ -57,7 +59,7 @@ const AuthProvider = ({ children }) => {
         navigate("/explore", { replace: true });
       }
     } catch (error) {
-      console.error(error);
+      triggerToast("error", "Please fill all the fields");
     }
   };
 

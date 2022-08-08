@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../context";
+import { triggerToast } from "../../utils";
 
 export const Signup = () => {
-  const [userDetails, setUserDetails] = useState({ email: "", passowrd: "" });
+  const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const { signup } = useAuth();
 
   return (
@@ -16,10 +17,16 @@ export const Signup = () => {
         <section className="quiz-content">
           <form action="" className="input-validation">
             <label htmlFor="username"></label>
-            <input type="text" placeholder="Enter Your Name" required />
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter Your Name"
+              required
+            />
 
             <label htmlFor="email-input"></label>
             <input
+              id="email-input"
               onChange={(e) =>
                 setUserDetails((prev) => ({ ...prev, email: e.target.value }))
               }
@@ -31,20 +38,18 @@ export const Signup = () => {
 
             <label htmlFor="password"></label>
             <input
+              id="password"
               onChange={(e) =>
                 setUserDetails((prev) => ({
                   ...prev,
-                  passowrd: e.target.value,
+                  password: e.target.value,
                 }))
               }
-              value={userDetails.passowrd}
+              value={userDetails.password}
               type="password"
               placeholder="Enter Password"
               required
             />
-
-            <label htmlFor="confirm password"></label>
-            <input type="password" placeholder="Re-type Password" required />
 
             <span>
               Already registered?{" "}
@@ -52,17 +57,22 @@ export const Signup = () => {
                 Login here
               </Link>
             </span>
+
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                if (!!userDetails.email && !!userDetails.password)
+                  signup(userDetails.email, userDetails.password);
+                else triggerToast("error", "Please fill all the fields");
+              }}
+              className="btn-primary next-quest btn-login"
+            >
+              Sign Up <i className="fa-solid fa-right-to-bracket"></i>
+            </button>
           </form>
 
-          <button
-            onClick={() => signup(userDetails.email, userDetails.passowrd)}
-            className="btn-primary next-quest btn-login"
-          >
-            Sign Up ▶
-          </button>
-
-          <Link to="/" className="btn-primary next-quest btn-home">
-            Home 🏠
+          <Link to="/" className="btn-primary next-quest btn-home mt-0p5">
+            Home <i className="fa-solid fa-house fa-sm"></i>
           </Link>
         </section>
       </div>

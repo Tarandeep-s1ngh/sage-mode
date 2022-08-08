@@ -44,6 +44,11 @@
     margin: 4.5px 0 3px 2px;
 }
 
+.input-validation > .next-quest {
+    width: 100%;
+    max-width: 210px;
+}
+
 .input-span {
     display: flex;
     flex-wrap: wrap;
