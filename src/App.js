@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { Navbar } from "./components";
+import { useTheme } from "./context";
 import {
   Explore,
   Forgot,
@@ -25,8 +26,19 @@ function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const { themeState, setThemeState } = useTheme();
+
+  useEffect(() => {
+    const theme = localStorage.getItem("VIDTHEME")
+      ? JSON.parse(localStorage.getItem("VIDTHEME"))
+      : { darkTheme: true };
+    if (theme.darkTheme) {
+      setThemeState({ ...theme });
+    }
+  }, []);
+
   return (
-    <div className="App">
+    <div className={themeState.darkTheme ? "App dark-mode" : "App light-mode"}>
       <div className="wrapper">
         <Navbar />
 

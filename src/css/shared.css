@@ -3,18 +3,12 @@
 =============================================*/
 
 :root {
-    --primary-color: #17181a;
     --secondary-color: #36345c;
     --accent-color: #7fc23c;
     --highlight-color: #46b9be;
-    --white: #ffffff;
+    --card-icon: #ffffff;
     --dark-blue: #1f274b;
-    --text-color: #d9d9d9;
-    --black: #242424;
-    --dark-black: #1a1a1a;
     --light-gray: #78909c;
-    --dark-gray: #424242;
-    --dark-shadow: #2c2c2c;
     --ecom-red: #d51b1f;
     --ecom-green: #388e3c;
     --ecom-box-shadow: #27374750;
@@ -24,6 +18,25 @@
     --playlist-overlay-bg: #00000050;
     --title-font: 'Poppins', sans-serif;
     font-size: 100%;
+}
+
+.dark-mode {
+    --primary-color: #17181a;
+    --white: #ffffff;
+    --text-color: #d9d9d9;
+    --black: #242424;
+    --dark-black: #1a1a1a;
+    --dark-shadow: #2c2c2c;
+}
+
+.light-mode {
+    --primary-color: #edf2f6;
+    --white: #242424;
+    --text-color: #242424;
+    --black: #ffffff;
+    --gray: #242424;
+    --dark-black: #ffffff;
+    --dark-shadow: #ffffff;
 }
 
 .accent-color {
@@ -141,11 +154,13 @@ a:hover {
 }
 
 .main-wrapper {
+    background-color: var(--primary-color);
     flex-grow: 1;
     padding: 1rem;
 }
 
 .explore-wrapper {
+    background-color: var(--primary-color);
     flex-grow: 1;
     display: flex;
 }

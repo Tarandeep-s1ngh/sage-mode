@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { sageLogo } from "../../assets";
-import { useAuth, useFilter } from "../../context";
+import { useAuth, useFilter, useTheme } from "../../context";
 import "./navbar.css";
 
 export const Navbar = () => {
@@ -12,6 +12,8 @@ export const Navbar = () => {
   const isHome = () => (pathname === "/" ? true : false);
 
   const { dispatch } = useFilter();
+
+  const { themeState, setThemeState } = useTheme();
 
   const [searchInput, setsearchInput] = useState("");
 
@@ -105,6 +107,29 @@ export const Navbar = () => {
           </Link>
         </>
       )}
+
+      <button
+        onClick={() => {
+          setThemeState((prev) => ({
+            ...prev,
+            darkTheme: !themeState.darkTheme,
+          }));
+          localStorage.setItem(
+            "VIDTHEME",
+            JSON.stringify({
+              darkTheme: !themeState.darkTheme,
+            })
+          );
+        }}
+        className="icon-in-nav tooltip"
+      >
+        {themeState.darkTheme ? (
+          <i className="fa-solid fa-moon"></i>
+        ) : (
+          <i className="fa-solid fa-sun"></i>
+        )}
+        <span className="tooltiptext">Theme</span>
+      </button>
     </nav>
   );
 };

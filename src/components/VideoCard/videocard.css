@@ -20,10 +20,15 @@
 }
 
 .vid-card-title {
+    color: var(--white);
     font-size: 1.3rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.main-video-title {
+    color: var(--white);
 }
 
 .card-header {
@@ -40,6 +45,7 @@
     font-size: 1rem;
     border-radius: unset;
     padding: unset;
+    color: var(--card-icon);
 }
 
 .card-floating-icon:hover {
@@ -115,6 +121,7 @@
     font-size: 1rem;
     border-radius: unset;
     padding: unset;
+    color: var(--card-icon);
 }
 
 

@@ -86,6 +86,7 @@
 =============================================*/
 
 .sidebar {
+    background-color: var(--primary-color);
     flex: 0 0 220px;
     margin-top: 74.75px;
     position: fixed;

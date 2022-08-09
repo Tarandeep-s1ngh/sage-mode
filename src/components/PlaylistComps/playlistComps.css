@@ -16,6 +16,7 @@
     min-width: 18ch;
     max-width: 25ch;
     background-color: var(--primary-color);
+    color: var(--white);
     padding: unset;
     user-select: none;
 }
@@ -69,10 +70,6 @@
 .modal-input:focus-visible {
     border: 1px solid var(--accent-color);
 }
-
-/* .modal input[type="checkbox"] {
-    background-color: rebeccapurple;
-} */
 
 .modal-footer {
     display: flex;

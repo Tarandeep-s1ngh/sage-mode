@@ -34,10 +34,12 @@
     font-size: 1.3rem;
     border-left: 5px solid var(--accent-color);
     padding-left: 0.6rem;
+    color: var(--white);
 }
 
 .empty-playlist {
     height: 100%;
+    color: var(--white);
     align-items: center;
     justify-content: center;
     gap: 1rem;

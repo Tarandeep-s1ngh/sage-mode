@@ -49,10 +49,6 @@ export const SingleVideo = () => {
       <Sidebar />
 
       <main className="main-content">
-        {/* <div className="alert alert-icon alert-success">
-          <i className="fas fa-check-circle"></i> Profile has been updated
-          successfully!
-        </div> */}
         <section className="single-video-card">
           <div>
             <iframe
@@ -65,7 +61,7 @@ export const SingleVideo = () => {
               allowFullScreen=""
             ></iframe>
           </div>
-          <div className="video-info flex-row-wrap align-items-center justify-sb">
+          <div className="video-info flex-row-wrap align-items-center justify-sb main-video-title">
             <div className="main-video-title">
               <h3>{currVideo.title}</h3>
             </div>
@@ -110,7 +106,7 @@ export const SingleVideo = () => {
             </div>
             <div>
               <h4 className="light-gray-color t1p125">{currVideo.creator}</h4>
-              <div className="mt-0p5 main-video-description">
+              <div className="mt-0p5 main-video-description main-video-title">
                 {currVideo.description}
               </div>
             </div>

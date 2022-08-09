@@ -24,7 +24,7 @@ export const PlaylistFolderCard = ({ playlistFolder }) => {
           alt={playlistFolder.title}
         />
         <div className="card-header-txt vid-card-header-txt">
-          <h3 className="semibold vid-card-title-hover">
+          <h3 className="semibold vid-card-title-hover main-video-title">
             {playlistFolder.title}
           </h3>
         </div>
