@@ -35,7 +35,7 @@ function App() {
     if (theme.darkTheme) {
       setThemeState({ ...theme });
     }
-  }, []);
+  }, [setThemeState]);
 
   return (
     <div className={themeState.darkTheme ? "App dark-mode" : "App light-mode"}>
